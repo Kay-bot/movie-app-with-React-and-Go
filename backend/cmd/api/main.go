@@ -12,7 +12,6 @@ import (
 	"time"
 
 	"github.com/joho/godotenv"
-	_ "github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
