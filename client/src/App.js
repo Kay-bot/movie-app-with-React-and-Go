@@ -5,6 +5,7 @@ import Admin from './components/Admin';
 import Home from './components/Home';
 import OneMovie from './components/OneMovie';
 import Genres from './components/Genres';
+import OneGenre from './components/OneGenre';
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
               <Route exact path="/" component={Home} />
               <Route path="/movies/:id" component={OneMovie} />
               <Route exact path="/movies" component={Movies} />
+              <Route path="/genre/:id" component={OneGenre} />
               <Route exact path="/genres" component={Genres} />
               <Route exact path="/admin" component={Admin} />
             </Switch>
