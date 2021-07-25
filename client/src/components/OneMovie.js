@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default class extends Component {
-  state = { movie: {} };
+  state = {
+    movie: {},
+    isLoaded: false,
+    error: null,
+  };
 
   componentDidMount() {
     fetch('http://localhost:4000/v1/movie/' + this.props.match.params.id)
