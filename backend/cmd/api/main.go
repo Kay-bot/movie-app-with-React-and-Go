@@ -11,7 +11,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/joho/godotenv"
 	_ "github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
@@ -41,16 +40,9 @@ type application struct {
 func main() {
 	var cfg config
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error Loading .env file")
-	}
-
-	sqlDatabaseString := os.Getenv("DATABASE")
-
 	flag.IntVar(&cfg.port, "port", 4000, "Server port to listen on")
 	flag.StringVar(&cfg.env, "env", "development", "Application environment (development|production)")
-	flag.StringVar(&cfg.db.dsn, "dsn", sqlDatabaseString, "Postgres connection string")
+	flag.StringVar(&cfg.db.dsn, "dsn", "postgresql://localhost:5432/kaylevin?sslmode=disable", "Postgres connection string")
 	flag.Parse()
 
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
