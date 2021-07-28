@@ -184,7 +184,7 @@ func (m *DBModel) InsertMovie(movie Movie) error {
 	defer cancel()
 
 	stmt := `insert into movies (title, description, year, release_date, runtime, rating, mpaa_rating,
-					create_at, updated_at) values ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
+					created_at, updated_at) values ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
 
 	_, err := m.DB.ExecContext(ctx, stmt,
 		movie.Title,
